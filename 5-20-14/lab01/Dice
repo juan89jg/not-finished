@@ -1,0 +1,63 @@
+
+public class Dice implements NumAndHistory
+{
+	int sumofNumbers;
+	int numberofDice;
+	int computerNumber;
+	int compNumber;
+	int NumberofThrows;
+	int[] HistoryArray = new int[1];
+	String S;
+	
+	public Dice(int Dice, int numthrows)
+	{
+		numberofDice = Dice;
+		NumberofThrows = numthrows;
+	}
+	/*public int Throw()
+	{
+		sumofNumbers = 0;
+		int i = 1;
+		while(i <= numberofDice)
+		{	
+			
+		
+			sumofNumbers += getRandomNumber();
+			System.out.printf("   The Sum of the Number: %d\n", sumofNumbers);
+			i++;
+		}
+	return	compNumber = sumofNumbers / numberofDice;
+	}*/
+	public int getRandomNumber()
+	{
+		sumofNumbers = 0;
+		int i = 1;
+		while(i <= numberofDice)
+		{	
+			computerNumber = (1+(int)(Math.random() *6));
+			sumofNumbers += computerNumber;
+			//System.out.printf("   The Sum of the Number: %d\n", sumofNumbers);
+			i++;
+		}
+		compNumber = sumofNumbers / numberofDice;
+		setHistory();
+		return compNumber;
+		
+	}
+	public String getHistory()
+	{
+		S += HistoryArray[0];
+		return S;
+	}
+	public void setHistory()
+	{
+		
+			HistoryArray[0] = compNumber;
+
+	}
+	@Override
+	public String toString()
+	{
+		return String.format("Number of Dice: %d\nDice Value: %d\nNumber of Throws: %d\n\n", numberofDice, compNumber, NumberofThrows);
+	}
+}
