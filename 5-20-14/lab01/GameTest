@@ -1,0 +1,22 @@
+
+public class GameTest 
+{
+public static void main(String[] args)
+{
+	NumAndHistory[] gameObject = new NumAndHistory[4];
+	
+	gameObject[0] = new Dice(1,2);
+	gameObject[1] = new Dice(2,3);
+	gameObject[2] = new Card(2);
+	gameObject[3] = new Card(3);
+	
+	System.out.println("Here is a summary of the Test\n");
+	for (NumAndHistory currentNumHistory : gameObject)
+	{
+		currentNumHistory.getRandomNumber();
+		System.out.printf("%s  %s" ,currentNumHistory.toString(),currentNumHistory.getHistory());
+	}
+}
+	
+}
+
