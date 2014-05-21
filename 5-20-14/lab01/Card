@@ -1,0 +1,53 @@
+
+public class Card implements NumAndHistory
+{
+	
+	int[] CardHistoryArray;
+	int computerNumber;
+	int numberofCards;
+	int cardSum;
+	int sumofNumbers;
+	String S= "";
+	
+	public Card(int cards)
+	{
+		numberofCards = cards;
+		CardHistoryArray = new int[cards];
+		
+	}
+	public int getRandomNumber()
+	{
+		sumofNumbers = 0;
+		int i = 0;
+		while(i < numberofCards-1)
+		{	
+			computerNumber = (1+(int)(Math.random() *(10-1)));
+			CardHistoryArray[i]= computerNumber;
+			sumofNumbers += computerNumber;
+			//System.out.printf("   The Sum of the Number: %d\n", sumofNumbers);
+			i++;
+		}
+		setHistory();
+		return sumofNumbers;
+	}
+	public String getHistory()
+	{
+	
+		return S;
+	}
+
+	public void setHistory()
+	{
+		S ="";
+		for(int i = 0; i< numberofCards; i++)
+		{
+		
+			S = S + " Card "+(i + 1) + "= "+ CardHistoryArray[i];
+		}
+	}
+	@Override
+	public String toString()
+	{
+		return String.format("Number of Cards: %d\nCard Sum: %d\nCard Values: %s\n\n", numberofCards, sumofNumbers, getHistory());
+	}
+}
