@@ -1,0 +1,7 @@
+
+public interface NumAndHistory
+{
+	int getRandomNumber();
+	String getHistory();
+}
+
